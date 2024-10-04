@@ -20,6 +20,10 @@ This module is designed to simplify the creation of virtual wan based networks i
 - Azure Firewall Rule Collection
 - Mapping Azure Firewall Policy to Azure Firewall 
 
+## Key Considerations
+- State storage : Terraform in "custom-avm-res-network-firewallpolicy" store its state in a container within a storage account. Details of the storage account are specified in backend.tf
+- For the purpose of mapping the firewall policy to the firewall, the firewall policy ID is referenced using remote state during the creation of "custom-avm-ptn-wan". Details of this can be found in local.tf for remote state details of "custom-avm-res-network-firewallpolicy" and backend.tf for "custom-avm-ptn-wan"
+
 <!-- markdownlint-disable MD013 -->
 ## Required Inputs
 
